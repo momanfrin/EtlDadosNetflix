@@ -1,4 +1,4 @@
-USE DbSeries;
+USE EtlNetflix;
 
 DELETE FROM Serie_Dublagem;
 

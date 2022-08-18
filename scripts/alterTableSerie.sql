@@ -1,7 +1,7 @@
-USE DbSeries;
+USE EtlNetflix;
 
 ALTER TABLE [ClassificacaoEtaria]
-ADD CodExterno VARCHAR(12);
+ADD CodExterno NVARCHAR(12);
 
 ALTER TABLE Serie  
 DROP CONSTRAINT [FK_Serie_IdDiretor];   
@@ -21,6 +21,12 @@ ALTER TABLE PaisOrigem
 DROP CONSTRAINT [PK_PAISORIGEM];   
 ALTER TABLE PaisOrigem ADD PRIMARY KEY (IdPais)
 
+ALTER TABLE Serie  
+DROP CONSTRAINT [FK_Serie_IdClassificacaoEtaria];    
+ALTER TABLE ClassificacaoEtaria  
+DROP CONSTRAINT [PK_CLASSIFICACAOETARIA];   
+ALTER TABLE ClassificacaoEtaria ADD PRIMARY KEY (IdClassificacaoEtaria)
+
 ALTER TABLE Serie
 DROP COLUMN [IdDiretor];
 ALTER TABLE Serie
@@ -28,6 +34,12 @@ DROP COLUMN [IdProdutora];
 ALTER TABLE Serie
 DROP COLUMN [IdPaisOrigem];
 ALTER TABLE Serie
-ADD Criadores VARCHAR(200);
+DROP COLUMN IdClassificacaoEtaria;
 ALTER TABLE Serie
-ADD IdGenero INT;
+ADD Url NVARCHAR(400) NOT NULL;
+ALTER TABLE Serie
+ADD Genero NVARCHAR(100) NOT NULL;
+ALTER TABLE Serie
+ADD ClassificacaoEtaria NVARCHAR(20) NOT NULL;
+ALTER TABLE Serie
+ADD Temporada NVARCHAR(100) NOT NULL;

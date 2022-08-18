@@ -1,4 +1,4 @@
-USE DbSeries;
+USE EtlNetflix;
 
 DROP TABLE Serie_Dublagem;
 
