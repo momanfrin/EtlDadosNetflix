@@ -1,4 +1,4 @@
-USE EtlNetflix;
+USE MergeNetflix;
 
 CREATE TABLE [Diretor] (
 	IdDiretor INT IDENTITY(1,1) NOT NULL,
@@ -143,6 +143,7 @@ CREATE TABLE [Serie] (
     REFERENCES [ClassificacaoEtaria]([IdClassificacaoEtaria])
 	
 )
+
 GO
 CREATE TABLE [Episodio] (
 	IdEpisodio INT IDENTITY(1,1) NOT NULL,
